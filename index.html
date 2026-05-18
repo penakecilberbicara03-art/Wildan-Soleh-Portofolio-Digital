@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wildan Soleh — Portfolio</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght=400;500;600;700&family=DM+Sans:wght=300;400;500;600;700&display=swap" rel="stylesheet">
@@ -97,51 +96,73 @@ pointer-events:none;
       bottom: 50px;
     }
 
-    .navbar {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+.navbar nav a {
 
-  width: min(1100px, 92%);
+text-decoration:none;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+color:rgba(255,255,255,.75);
 
-  padding: 18px 28px;
+font-size:14px;
 
-  border: 1px solid var(--border);
+padding:12px 18px;
 
-  background: rgba(10,10,10,0.45);
+border-radius:14px;
 
-  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+display:flex;
 
-  backdrop-filter: blur(20px);
+align-items:center;
 
-  border-radius: 24px;
+gap:10px;
 
-  z-index:9999;
+background:rgba(255,255,255,.03);
 
-  pointer-events:auto;
+border:1px solid transparent;
 
-  transition:
-  background .3s ease,
-  border-color .3s ease,
-  transform .3s ease;
+transition:
+all .35s ease;
+
+position:relative;
+
+overflow:hidden;
 }
 
-  .logo{
-  width:300px;
-  overflow:hidden;
-  display:flex;
-  white-space:nowrap;
+.navbar nav a::before{
 
-  font-family:var(--serif);
-  font-size:18px;
-  font-weight:700;
-  letter-spacing:2px;
-  color:var(--gold-light);
+content:'';
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.12),
+transparent);
+
+left:-100%;
+
+transition:.6s;
+}
+
+.navbar nav a:hover::before{
+left:100%;
+}
+
+.navbar nav a:hover{
+
+background:rgba(201,168,76,.10);
+
+border-color:rgba(201,168,76,.35);
+
+transform:translateY(-4px);
+
+box-shadow:
+0 12px 24px rgba(0,0,0,.35),
+0 0 20px rgba(201,168,76,.12);
+
+color:var(--gold-light);
 }
 
 .marquee-track{
@@ -998,32 +1019,27 @@ transform:translateY(0);
 ✏️
 </div>
 
-  <!-- FIXED NAVBAR -->
- <header class="navbar">
-  <div class="logo">
+  <header class="navbar">
 
+<div class="logo">
 <div class="marquee-track">
 
 <span>WILDAN SOLEH</span>
 <span>WILDAN SOLEH</span>
 <span>WILDAN SOLEH</span>
 
-<span>WILDAN SOLEH</span>
-<span>WILDAN SOLEH</span>
-<span>WILDAN SOLEH</span>
-
+</div>
 </div>
 
-</div>
-  <nav>
-      <a href="#about">About</a>
-      <a href="#journey">Journey</a>
-      <a href="#projects">Projects</a>
-      <a href="#hobbies">Hobbies</a>
-      <a href="#contact">Contact</a>
-    </nav>
-</div>
-  </header>
+<nav>
+<a href="#about">About</a>
+<a href="#journey">Journey</a>
+<a href="#projects">Projects</a>
+<a href="#hobbies">Hobbies</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
 
   <!-- HERO SECTION -->
   <section class="hero">
