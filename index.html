@@ -793,39 +793,37 @@ section{
     translateY(-4px);
 }
 
-  /* ========================================== */
-/* STYLE PLAYLIST MUSIK UNTUK BOOKS & NOTES  */
+/* ========================================== */
+/* STYLE GRID 3 KOLOM ALA PLATFORM MUSIK     */
 /* ========================================== */
 
-/* Membuat container card agar sejajar ke samping & responsif */
 .music-style-grid {
   margin-top: 60px;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  /* Membuat otomatis 3 kolom sejajar kalau layar luas, dan otomatis turun di HP */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
-  flex-wrap: wrap; /* Supaya otomatis turun ke bawah kalau di HP */
 }
 
-/* Base Card bertema Gelap Transparan ala Spotify */
 .music-card {
   background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 24px;
   padding: 20px;
-  width: 100%;
-  max-width: 360px; /* Batas lebar maksimal card */
+  width: 100%; /* Mengikuti lebar grid */
   transition: transform 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease;
   backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
 }
 
-/* Efek interaktif saat kursor diarahkan ke card (Hover) */
 .music-card:hover {
-  transform: translateY(-10px) scale(1.02); /* Angkat card sedikit ke atas */
-  border-color: rgba(201,168,76,0.35); /* Ubah border jadi warna gold tipis */
-  box-shadow: 0 25px 50px rgba(0,0,0,0.55), 0 0 30px rgba(201,168,76,0.1); /* Efek bayangan glow */
+  transform: translateY(-12px) scale(1.02);
+  border-color: rgba(201,168,76,0.35);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.55), 0 0 40px rgba(201,168,76,0.12);
 }
 
-/* Frame Gambar: Mengunci gambar agar kotak sempurna (1:1) */
+/* Mengunci semua gambar (Buku, Catatan, & Band) jadi kotak presisi */
 .music-card-image {
   width: 100%;
   aspect-ratio: 1 / 1; 
@@ -837,24 +835,25 @@ section{
 .music-card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Mencegah gambar gepeng/distorsi */
+  object-fit: cover;
   transition: transform 0.6s ease;
 }
 
-/* Efek zoom tipis pada gambar saat card di-hover */
 .music-card:hover .music-card-image img {
   transform: scale(1.06);
 }
 
-/* Pengaturan Teks di Bawah Gambar */
 .music-card-content {
-  text-align: left; /* Teks rata kiri biar rapi */
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Memaksa tinggi konten sama rata */
 }
 
 .music-card-content h3 {
   margin: 8px 0 12px 0;
-  font-size: 26px;
-  font-family: var(--serif); /* Pakai font Cormorant Garamond bawaan lu */
+  font-size: 24px;
+  font-family: var(--serif);
   color: var(--cream);
 }
 
@@ -862,57 +861,13 @@ section{
   color: rgba(255,255,255,0.6);
   line-height: 1.7;
   font-size: 14px;
+  margin-bottom: 15px;
 }
-</style>
-</head>
-<body>
 
-<div class="bg">
-  <div class="grid"></div>
-  <div class="orb orb1"></div>
-  <div class="orb orb2"></div>
-</div>
-
-<header class="navbar">
-  <div class="logo">W. Soleh</div>
-
-  <nav>
-    <a href="#about">
-      <div class="nav-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4.4 0-8 2-8 4.5V21h16v-2.5C20 16 16.4 14 12 14z"/></svg>
-      </div>
-      About
-    </a>
-
-    <a href="#journey">
-      <div class="nav-icon">
-        <svg viewBox="0 0 24 24"><path d="M4 19h16v2H4zm2-4h3v3H6zm5-6h3v9h-3zm5-4h3v13h-3z"/></svg>
-      </div>
-      Journey
-    </a>
-
-    <a href="#projects">
-      <div class="nav-icon">
-        <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4zm9 0h7v7h-7zM4 13h7v7H4zm9 3h7v4h-7z"/></svg>
-      </div>
-      Projects
-    </a>
-
-    <a href="#hobbies">
-      <div class="nav-icon">
-        <svg viewBox="0 0 24 24"><path d="M21.7 13.35l-1.34-1.03a7.72 7.72 0 0 0 0-.64l1.34-1.03a.5.5 0 0 0 .12-.64l-1.27-2.2a.5.5 0 0 0-.6-.22l-1.58.63a6.6 6.6 0 0 0-.55-.32l-.24-1.68a.5.5 0 0 0-.5-.42h-2.54a.5.5 0 0 0-.5.42l-.24 1.68a6.6 6.6 0 0 0-.55.32l-1.58-.63a.5.5 0 0 0-.6.22L2.18 10a.5.5 0 0 0 .12.64l1.34 1.03a7.72 7.72 0 0 0 0 .64L2.3 13.35a.5.5 0 0 0-.12.64l1.27 2.2a.5.5 0 0 0 .6.22l1.58-.63c.18.12.36.23.55.32l.24 1.68a.5.5 0 0 0 .5.42h2.54a.5.5 0 0 0 .5-.42l.24-1.68c.19-.09.37-.2.55-.32l1.58.63a.5.5 0 0 0 .6-.22l1.27-2.2a.5.5 0 0 0-.12-.64z"/></svg>
-      </div>
-      Hobbies
-    </a>
-
-    <a href="#contact">
-      <div class="nav-icon">
-        <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2zm10 7L4 6v12h16V6z"/></svg>
-      </div>
-      Contact
-    </a>
-  </nav>
-</header>
+/* Memaksa tag/chips selalu berada di paling bawah card */
+.music-card-content .tags {
+  margin-top: auto; 
+}
 
 <section class="hero">
   <div class="hero-text reveal">
@@ -1044,50 +999,46 @@ section{
 </section>
 
 <!-- ========================================== -->
-<!-- SEKSI BOOKS & NOTES (LAYOUT ALA BAR MUSIK) -->
+<!-- SEKSI HOBI UNIK (LITERATUR, WRITING, MUSIC) -->
 <!-- ========================================== -->
 <section id="hobbies">
   <div class="reveal">
     <div class="section-head">
       <div class="section-icon">
-        <!-- Icon Buku/Catatan Minimalis -->
+        <!-- Icon Hobi/Kreativitas -->
         <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-9 9v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a9 9 0 0 0-9-9zm-1 16H5v-2h6zm0-4H5v-2h6zm7 4h-5v-2h5zm0-4h-5v-2h5z"/></svg>
       </div>
-      <h2 class="section-title">Books & Notes</h2>
+      <h2 class="section-title">Hobbies & Creative Spaces</h2>
     </div>
-    <p class="section-sub">Beberapa buku dan catatan yang cukup memengaruhi cara saya melihat kehidupan, kreativitas, dan proses belajar.</p>
+    <p class="section-sub">Eksplorasi kreativitas saya dalam merangkai kata, membaca realita, dan menyelaraskan nada.</p>
   </div>
 
-  <!-- Container pembungkus card hobi baru -->
+  <!-- Container Grid Utama (3 Card Sejajar) -->
   <div class="music-style-grid">
     
-    <!-- Card 1: Bagian Literature -->
+    <!-- CARD 1: LITERATURE -->
     <div class="music-card reveal">
       <div class="music-card-image">
-        <!-- Gambar Cover Buku Berada di Atas -->
         <img src="https://i.ibb.co.com/tPwGXnz0/IMG-20260222-WA0009.jpg" alt="Literature & Poetry">
       </div>
       <div class="music-card-content">
-        <!-- Tulisan/Keterangan Berada di Bawah Gambar -->
         <div class="project-year">Reading</div>
         <h3>Literature & Poetry</h3>
         <p>Menikmati karya sastra dan puisi untuk mencari sudut pandang baru tentang manusia, emosi, dan kehidupan.</p>
         <div class="tags">
           <div class="tag">Ahmad Tohari</div>
-          <div class="tag">Sapardi Djoko Damono</div>
-          <div class="tag">Pramoedya Ananta Toer</div>
+          <div class="tag">Sapardi</div>
+          <div class="tag">Pramoedya</div>
         </div>
       </div>
     </div>
 
-    <!-- Card 2: Bagian Writer -->
+    <!-- CARD 2: WRITING -->
     <div class="music-card reveal">
       <div class="music-card-image">
-        <!-- Gambar Screenshot Catatan Berada di Atas -->
         <img src="https://i.ibb.co.com/35JVmHdd/Screenshot-20260511-222658.jpg" alt="Writing & Reflection">
       </div>
       <div class="music-card-content">
-        <!-- Tulisan/Keterangan Berada di Bawah Gambar -->
         <div class="project-year">Personal Notes</div>
         <h3>Writing & Reflection</h3>
         <p>Menulis catatan kecil, ide, dan lirik sebagai cara untuk menyimpan pengalaman dan proses berpikir.</p>
@@ -1099,26 +1050,25 @@ section{
       </div>
     </div>
 
+    <!-- CARD 3: MUSIC (Sekarang Sejajar Pakai Style yang Sama!) -->
+    <div class="music-card reveal">
+      <div class="music-card-image">
+        <img src="https://i.ibb.co.com/KcXmPNqK/IMG-20260426-WA0004.jpg" alt="Music & Band">
+      </div>
+      <div class="music-card-content">
+        <div class="project-year">Acoustic & Band</div>
+        <h3>Music & Performance</h3>
+        <p>Musik menjadi bagian dari keseharian saya. Bermain bersama band, menulis lirik, dan menikmati proses kreatif.</p>
+        <div class="tags">
+          <div class="tag">Guitar</div>
+          <div class="tag">Songwriter</div>
+          <div class="tag">Vocalist</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
-
-<section id="music">
-  <div class="music-box reveal">
-    <img src="https://i.ibb.co.com/KcXmPNqK/IMG-20260426-WA0004.jpg">
-  </div>
-  <div class="reveal" style="text-align:center; margin-top:30px;">
-  <h2 class="section-title">Music & Band</h2>
-
-  <p class="section-sub" style="margin:auto;">
-    Musik menjadi bagian dari keseharian saya. Bermain bersama band, menulis lirik, dan menikmati proses kreatif di balik setiap lagu.
-  </p>
-</div>
-</section>
-
-<section class="quote">
-  <h2 class="reveal">Jembatan antara <span>logika</span> dan harmoni kreativitas.</h2>
-</section>
-
 <section id="contact">
   <div class="contact-box reveal">
     <h2>Let's Build Something Meaningful.</h2>
