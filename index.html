@@ -753,48 +753,71 @@ transform:translateX(-33.33%);
   fill: var(--gold-light); /* Warnanya emas mengikuti tema web lu */
 }
 
-/* --- PENGATURAN POSISI & EFEK 3D MASING-MASING OBJEK --- */
-
-/* Objek 1: Musik Besar di Kiri Atas (Efek Depan Layar / Blur) */
-.obj-music-1 {
-  width: 120px;
-  height: 120px;
-  top: 15%;
-  left: 5%;
-  filter: blur(4px); /* Blur tebal seolah-olah dekat banget sama mata */
-  animation: melayangMuter 25s ease-in-out infinite;
+.obj-music-1{
+width:45px;
+height:45px;
+top:12%;
+left:8%;
 }
 
-/* Objek 2: Buku di Kanan Tengah (Efek Sedang) */
-.obj-book-1 {
-  width: 70px;
-  height: 70px;
-  top: 45%;
-  right: 8%;
-  filter: blur(1px); /* Sedikit blur */
-  animation: melayangAja 30s ease-in-out infinite;
+.obj-book-1{
+width:35px;
+height:35px;
+top:40%;
+right:12%;
 }
 
-/* Objek 3: Pulpen di Kiri Bawah (Efek Jauh / Tajam) */
-.obj-pen-1 {
-  width: 45px;
-  height: 45px;
-  bottom: 20%;
-  left: 10%;
-  filter: blur(0); /* Tajam tanpa blur, seolah jauh di belakang */
-  animation: melayangMuter 20s ease-in-out infinite;
+.obj-pen-1{
+width:30px;
+height:30px;
+bottom:18%;
+left:14%;
 }
 
-/* Objek 4: Musik Kecil di Kanan Atas */
-.obj-music-2 {
-  width: 50px;
-  height: 50px;
-  top: 25%;
-  right: 25%;
-  filter: blur(0.5px);
-  animation: melayangAja 22s ease-in-out infinite;
+.obj-music-2{
+width:25px;
+height:25px;
+top:20%;
+right:30%;
+}
+.obj-book-2{
+width:28px;
+height:28px;
+top:70%;
+left:25%;
+
+animation:melayangAja 18s infinite;
 }
 
+.obj-pen-2{
+width:22px;
+height:22px;
+
+top:30%;
+left:55%;
+
+animation:melayangMuter 20s infinite;
+}
+
+.obj-music-3{
+width:30px;
+height:30px;
+
+bottom:25%;
+right:18%;
+
+animation:melayangAja 22s infinite;
+}
+
+.obj-book-3{
+width:24px;
+height:24px;
+
+top:10%;
+right:45%;
+
+animation:melayangMuter 24s infinite;
+}
 
 /* --- TRACK JALUR ANIMASI MELAYANG (TIMELINE GERAKAN) --- */
 
@@ -871,6 +894,29 @@ transform:translateY(0);
   <div class="floating-obj obj-music-2">
     <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
   </div>
+</div>
+  <div class="floating-obj obj-book-2">
+<svg viewBox="0 0 24 24">
+<path d="M21 5c-1.11-.35..."/>
+</svg>
+</div>
+
+<div class="floating-obj obj-pen-2">
+<svg viewBox="0 0 24 24">
+<path d="M3 17.25V21h3.75..."/>
+</svg>
+</div>
+
+<div class="floating-obj obj-music-3">
+<svg viewBox="0 0 24 24">
+<path d="M12 3v10.55..."/>
+</svg>
+</div>
+
+<div class="floating-obj obj-book-3">
+<svg viewBox="0 0 24 24">
+<path d="M21 5c-1.11-.35..."/>
+</svg>
 </div>
 
   <!-- FIXED NAVBAR -->
