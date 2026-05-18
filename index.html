@@ -120,7 +120,7 @@
   color: var(--gold-light);
   
   /* Lebar "terowongan" kita besarkan dikit biar jalannya lebih jauh dan puas dilihat */
-  width: 280px; 
+  width: 350px; 
   overflow: hidden;
   white-space: nowrap;
   display: flex;
@@ -732,16 +732,129 @@
     .music-card-content .tags {
       margin-top: auto; 
     }
+
+    /* ========================================== */
+/* STYLE ELEMEN MELAYANG 3D DI BACKGROUND    */
+/* ========================================== */
+
+/* Base style untuk semua objek melayang */
+.floating-obj {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none; /* Biar kursor tikus bisa nembus objek ini */
+  opacity: 0.12;       /* Dibikin transparan tipis biar estetik, ga norak */
+}
+
+.floating-obj svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--gold-light); /* Warnanya emas mengikuti tema web lu */
+}
+
+/* --- PENGATURAN POSISI & EFEK 3D MASING-MASING OBJEK --- */
+
+/* Objek 1: Musik Besar di Kiri Atas (Efek Depan Layar / Blur) */
+.obj-music-1 {
+  width: 120px;
+  height: 120px;
+  top: 15%;
+  left: 5%;
+  filter: blur(4px); /* Blur tebal seolah-olah dekat banget sama mata */
+  animation: melayangMuter 25s ease-in-out infinite;
+}
+
+/* Objek 2: Buku di Kanan Tengah (Efek Sedang) */
+.obj-book-1 {
+  width: 70px;
+  height: 70px;
+  top: 45%;
+  right: 8%;
+  filter: blur(1px); /* Sedikit blur */
+  animation: melayangAja 30s ease-in-out infinite;
+}
+
+/* Objek 3: Pulpen di Kiri Bawah (Efek Jauh / Tajam) */
+.obj-pen-1 {
+  width: 45px;
+  height: 45px;
+  bottom: 20%;
+  left: 10%;
+  filter: blur(0); /* Tajam tanpa blur, seolah jauh di belakang */
+  animation: melayangMuter 20s ease-in-out infinite;
+}
+
+/* Objek 4: Musik Kecil di Kanan Atas */
+.obj-music-2 {
+  width: 50px;
+  height: 50px;
+  top: 25%;
+  right: 25%;
+  filter: blur(0.5px);
+  animation: melayangAja 22s ease-in-out infinite;
+}
+
+
+/* --- TRACK JALUR ANIMASI MELAYANG (TIMELINE GERAKAN) --- */
+
+/* Variasi 1: Melayang naik turun + sedikit goyang kanan kiri + muter dikit */
+@keyframes melayangMuter {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-30px) translateX(15px) rotate(5deg);
+  }
+  66% {
+    transform: translateY(15px) translateX(-20px) rotate(-10deg);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+}
+
+/* Variasi 2: Melayang jalurnya beda biar gak kompak geraknya */
+@keyframes melayangAja {
+  0% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-40px) translateX(-25px) scale(1.05); /* Agak membesar dikit pas maju */
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+}
   </style>
 </head>
 <body>
 
   <!-- BACKGROUND GRADIENT ORBS -->
-  <div class="bg">
-    <div class="grid"></div>
-    <div class="orb orb1"></div>
-    <div class="orb orb2"></div>
+<div class="bg">
+  <div class="grid"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+
+  <!-- ELEMENT MELAYANG BARU (NADA, BUKU, PULPEN) -->
+  <!-- Objek 1: Nada Musik (Besar & Dekat/Blur) -->
+  <div class="floating-obj obj-music-1">
+    <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
   </div>
+
+  <!-- Objek 2: Buku (Sedang) -->
+  <div class="floating-obj obj-book-1">
+    <svg viewBox="0 0 24 24"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.1-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V5c-.6-.45-1.35-.75-2-.85zM3 18.5V7c1.1-.35 2.3-.5 3.5-.5 1.95 0 4.05.4 5.5 1.5v11.5c-1.45-1.1-3.55-1.5-5.5-1.5-1.2 0-2.4.15-3.5.5zm18 0c-1.1-.35-2.3-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5V9.5c1.45-1.1 3.55-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg>
+  </div>
+
+  <!-- Objek 3: Pulpen/Pena (Kecil & Jauh) -->
+  <div class="floating-obj obj-pen-1">
+    <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+  </div>
+
+  <!-- Objek 4: Nada Musik (Kecil) -->
+  <div class="floating-obj obj-music-2">
+    <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+  </div>
+</div>
 
   <!-- FIXED NAVBAR -->
  <header class="navbar">
