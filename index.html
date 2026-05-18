@@ -111,32 +111,41 @@
       transition: background .3s ease, border-color .3s ease, transform .3s ease;
     }
 
-    .logo {
+   /* ---- GANTI KODE .logo LU DENGAN INI ---- */
+.logo {
   font-family: var(--serif);
-  font-size: 18px;            /* Ukuran font disesuaikan biar elegan */
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: 2px;
   color: var(--gold-light);
   
-  /* --- KUNCI BIAR TEKS JALAN ENGGAK NABRAK MENU NAVIGASI --- */
-  width: 160px;               /* Kita kunci lebar "terowongannya" cuma 160 pixel */
-  white-space: nowrap;        /* Biar teksnya tetep lurus sebaris, enggak patah ke bawah */
-  overflow: hidden;           /* Sembunyikan teks yang keluar dari batas 160 pixel tadi */
+  /* Lebar "terowongan" kita besarkan dikit biar jalannya lebih jauh dan puas dilihat */
+  width: 220px; 
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
 }
 
-/* --- SEKARANG TAMBAHKAN KODE BARU INI TEPAT DI BAWAH KODE .logo DI ATAS --- */
-.logo span {
+/* ---- KODE BARU: Sebagai rel kereta biar teksnya berjejer ke samping ---- */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  /* JALAN LEBIH CEPET: Ganti ke 5s (5 detik) biar meluncur pas cepatnya */
+  animation: logoJalanTerus 5s linear infinite; 
+}
+
+/* ---- KODE BARU: Mengatur masing-masing teks ---- */
+.marquee-track span {
   display: inline-block;
-  animation: logoJalanTerus 10s linear infinite; /* 'infinite' biar muter terus tanpa henti */
 }
 
-/* --- JALUR ANIMASINYA (DARI KIRI KE KANAN) --- */
+/* ---- GANTI KEYFRAMES LU DENGAN LOGIKA LOOPING INI ---- */
 @keyframes logoJalanTerus {
   0% {
-    transform: translateX(-100%); /* Mulai dari sebelah kiri luar terowongan (nggak kelihatan) */
+    transform: translateX(0); /* Mulai jalan */
   }
   100% {
-    transform: translateX(160px); /* Berjalan ke kanan sampai keluar dari batas terowongan */
+    transform: translateX(-50%); /* Geser ke kiri tepat setengahnya, bikin efek mulus tanpa putus */
   }
 }
 
@@ -737,8 +746,11 @@
   <!-- FIXED NAVBAR -->
  <header class="navbar">
   <div class="logo">
-    <span>WILDAN SOLEH</span>
+  <div class="marquee-track">
+    <span>WILDAN SOLEH&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <span>WILDAN SOLEH&nbsp;&nbsp;&nbsp;&nbsp;</span>
   </div>
+</div>
   <nav>
       <a href="#about">About</a>
       <a href="#journey">Journey</a>
