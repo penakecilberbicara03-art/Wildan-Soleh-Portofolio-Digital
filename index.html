@@ -166,27 +166,21 @@ color:var(--gold-light);
 }
 
 .marquee-track{
-  display:flex;
-  flex-shrink:0;
+display:flex;
+width:max-content;
 
-  animation:logoJalanTerus 8s linear infinite;
+animation:logoJalanTerus 12s linear infinite;
 }
 
 .marquee-track span{
-  padding-right:80px;
+padding-right:50px;
+
+display:inline-flex;
+align-items:center;
+
+flex-shrink:0;
 }
 
-@keyframes logoJalanTerus{
-
-0%{
-transform:translateX(0);
-}
-
-100%{
-transform:translateX(-33.33%);
-}
-
-}
     .navbar{
 position:fixed;
 
@@ -217,15 +211,19 @@ border-radius:24px;
 }
 
 .logo{
+width:220px;
+overflow:hidden;
+
+white-space:nowrap;
+
+display:flex;
+align-items:center;
+
 font-family:var(--serif);
 
 font-size:24px;
 
 color:var(--gold);
-
-overflow:hidden;
-
-width:180px;
 }
     .navbar nav {
       display: flex;
@@ -971,6 +969,18 @@ transform:translateY(-30px);
 
 100%{
 transform:translateY(0);
+}
+
+}
+
+@keyframes logoJalanTerus{
+
+0%{
+transform:translateX(0);
+}
+
+100%{
+transform:translateX(-33.33%);
 }
 
 }
