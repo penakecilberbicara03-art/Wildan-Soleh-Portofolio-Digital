@@ -166,6 +166,18 @@ box-shadow:
 
 color:var(--gold-light);
 }
+.navbar nav a.active{
+
+background:
+rgba(201,168,76,.12);
+
+color:
+var(--gold-light);
+
+border-color:
+rgba(201,168,76,.3);
+
+}
 
 .marquee-track{
 display:flex;
@@ -996,10 +1008,95 @@ transform:translateX(0);
 transform:translateX(-33.33%);
 }
 
+.cursor{
+width:20px;
+
+height:20px;
+
+border:2px solid var(--gold);
+
+border-radius:50%;
+
+position:fixed;
+
+top:0;
+left:0;
+
+pointer-events:none;
+
+z-index:99999;
+
+transform:
+translate(-50%,-50%);
+
+transition:
+transform .1s linear;
+
+backdrop-filter:blur(4px);
+
+box-shadow:
+0 0 20px rgba(201,168,76,.4);
+}
+
+.loader{
+
+position:fixed;
+
+inset:0;
+
+background:#090b0d;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:999999;
+
+transition:1s;
+}
+
+.loader-text{
+
+font-size:40px;
+
+font-family:var(--serif);
+
+color:var(--gold);
+
+letter-spacing:8px;
+
+animation:
+pulseLoader 1.5s infinite;
+}
+
+.loader.hide{
+
+opacity:0;
+
+visibility:hidden;
+}
+
+@keyframes pulseLoader{
+
+50%{
+opacity:.5;
+transform:scale(1.05);
+}
+
 }
   </style>
 </head>
 <body>
+
+  <div class="loader">
+
+<div class="loader-text">
+WILDAN SOLEH
+</div>
+
+</div>
 
   <!-- BACKGROUND GRADIENT ORBS -->
 <div class="bg">
@@ -1331,7 +1428,90 @@ transform:translateX(-33.33%);
         orb2.style.transform = `translate(${-x}px, ${-y}px)`;
       }
     });
-  </script>
+    const cursor =
+document.querySelector('.cursor');
 
+window.addEventListener(
+'mousemove',
+(e)=>{
+
+cursor.style.left=
+e.clientX+'px';
+
+cursor.style.top=
+e.clientY+'px';
+
+});
+
+window.addEventListener(
+'load',
+()=>{
+
+setTimeout(()=>{
+
+document
+.querySelector('.loader')
+.classList.add(
+'hide'
+);
+
+},1500);
+
+});
+const sections=
+document.querySelectorAll(
+'section'
+);
+
+const navLinks=
+document.querySelectorAll(
+'.navbar nav a'
+);
+
+window.addEventListener(
+'scroll',
+()=>{
+
+let current='';
+
+sections.forEach(sec=>{
+
+const top=
+sec.offsetTop-200;
+
+if(
+window.scrollY>=top
+){
+
+current=
+sec.id;
+
+}
+
+});
+
+navLinks.forEach(link=>{
+
+link.classList.remove(
+'active'
+);
+
+if(
+link.getAttribute(
+'href'
+)==='#'+current
+){
+
+link.classList.add(
+'active'
+);
+
+}
+
+});
+
+});
+  </script>
+<div class="cursor"></div>
 </body>
 </html>
