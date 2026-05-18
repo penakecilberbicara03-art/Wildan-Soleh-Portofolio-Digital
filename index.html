@@ -1040,74 +1040,63 @@ box-shadow:
 0 0 20px rgba(201,168,76,.4);
 }
 
-.loader {
+.loader{
   position: fixed;
   inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999999;
-  background: radial-gradient(circle at center, rgba(201,168,76,0.25), #0b0d10 60%, #070809);
 
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.8s ease, visibility 0.8s ease;
+  background:
+    radial-gradient(circle at center, rgba(201,168,76,0.20), transparent 55%),
+    linear-gradient(135deg, #070809, #0b0d10);
+
+  overflow: hidden;
 }
 
-.loader.hide {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+/* Hiasan pinggir */
+.loader::before,
+.loader::after{
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 2px solid rgba(201,168,76,0.15);
+  border-radius: 30px;
+  transform: rotate(45deg);
+  animation: loaderFloat 6s ease-in-out infinite;
 }
 
-.loader-text{
-
-display:flex;
-
-gap:6px;
-
-font-size:42px;
-
-font-family:var(--serif);
-
-color:var(--gold);
-
-letter-spacing:5px;
+.loader::before{
+  top: -120px;
+  left: -120px;
 }
 
-.loader-text span{
-
-opacity:0;
-
-transform:
-translateY(30px);
-
-display:inline-block;
-
-animation:
-letterShow .6s forwards;
+.loader::after{
+  bottom: -120px;
+  right: -120px;
+  animation-delay: 1.5s;
 }
 
-.space{
-width:18px;
+/* tambahan titik cahaya kecil */
+.loader::after,
+.loader::before{
+  box-shadow:
+    0 0 40px rgba(201,168,76,0.08),
+    inset 0 0 30px rgba(255,255,255,0.03);
 }
 
-.loader.hide{
-
-opacity:0;
-
-visibility:hidden;
+@keyframes loaderFloat{
+  0%,100%{
+    transform: rotate(45deg) translateY(0);
+    opacity: 0.5;
+  }
+  50%{
+    transform: rotate(45deg) translateY(20px);
+    opacity: 1;
+  }
 }
-
-@keyframes pulseLoader{
-
-50%{
-opacity:.5;
-transform:scale(1.05);
-}
-
-}
-
 @keyframes letterShow{
 
 to{
