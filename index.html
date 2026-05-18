@@ -1079,6 +1079,14 @@ box-shadow:
   animation-delay: 1.5s;
 }
 
+.loader.hide{
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.1);
+  filter: blur(10px);
+  transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
+}
 /* tambahan titik cahaya kecil */
 .loader::after,
 .loader::before{
@@ -1113,7 +1121,12 @@ translateY(0);
 .loader-text span:nth-child(1){
 animation-delay:.1s;
 }
-
+.loader-text span{
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: letterShow 0.6s ease forwards;
+}
 .loader-text span:nth-child(2){
 animation-delay:.2s;
 }
@@ -1615,7 +1628,7 @@ link.classList.add(
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.querySelector('.loader').classList.add('hide');
-  }, 2000);
+  }, 3000);
 });
   </script>
 <div class="cursor"></div>
