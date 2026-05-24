@@ -405,13 +405,29 @@ color:rgba(255,255,255,.6);
 }
 
 /* MENU ORBIT */
+.orbit-wrap{
+position:absolute;
 
+width:100%;
+height:100%;
+
+animation:
+orbitSpin 25s linear infinite;
+}
+
+.orbit-wrap:hover{
+animation-play-state:paused;
+}
+    
 .nav-orbit{
 position:absolute;
 
 width:120px;
 height:120px;
 
+animation:
+counterSpin 25s linear infinite;
+  
 border-radius:30px;
 
 background:
@@ -441,6 +457,10 @@ box-shadow:
 0 10px 30px rgba(0,0,0,.25);
 }
 
+.orbit-wrap:hover .nav-orbit{
+animation-play-state:paused;
+}
+    
 .nav-orbit i{
 font-size:28px;
 
@@ -514,6 +534,17 @@ transform:translateY(-12px);
 
 }
 
+    @keyframes orbitSpin{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(360deg);
+}
+
+}
 /* RESPONSIVE */
 
 @media(max-width:768px){
