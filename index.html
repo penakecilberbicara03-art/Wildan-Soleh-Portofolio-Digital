@@ -316,25 +316,227 @@ position:relative;
 z-index:5;
 }
 
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 60px;
-    }
 
-    /* ---- CARI DAN GANTI BAGIAN INI DI CSS LU ---- */
-.hero-mini {
-  color: var(--gold);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  font-size: 12px;
-  /* Tambahan Animasi */
-  opacity: 0;
-  transform: translateY(20px);
-  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+/* ---- CARI DAN GANTI BAGIAN INI DI CSS LU ---- */
+/* HERO BARU */
+
+.hero-center{
+min-height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+position:relative;
+}
+
+.hero-circle{
+position:relative;
+
+width:650px;
+height:650px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* FOTO TENGAH */
+
+.profile-core{
+width:320px;
+height:320px;
+
+border-radius:50%;
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+backdrop-filter:
+blur(20px);
+
+display:flex;
+flex-direction:column;
+
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+padding:30px;
+
+position:relative;
+
+z-index:5;
+
+box-shadow:
+0 0 50px rgba(201,168,76,.15);
+
+animation:
+coreFloat 5s ease-in-out infinite;
+}
+
+.profile-core img{
+width:140px;
+height:140px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+margin-bottom:20px;
+
+border:3px solid var(--gold);
+}
+
+.profile-core h1{
+font-family:var(--serif);
+
+font-size:42px;
+
+margin-bottom:10px;
+}
+
+.profile-core p{
+color:rgba(255,255,255,.6);
+}
+
+/* MENU ORBIT */
+
+.nav-orbit{
+position:absolute;
+
+width:120px;
+height:120px;
+
+border-radius:30px;
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+display:flex;
+flex-direction:column;
+
+justify-content:center;
+align-items:center;
+
+gap:10px;
+
+text-decoration:none;
+
+color:white;
+
+backdrop-filter:
+blur(12px);
+
+transition:.4s ease;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.25);
+}
+
+.nav-orbit i{
+font-size:28px;
+
+color:var(--gold);
+}
+
+.nav-orbit span{
+font-size:14px;
+}
+
+.nav-orbit:hover{
+
+transform:
+translateY(-10px)
+scale(1.05);
+
+border-color:
+rgba(201,168,76,.4);
+
+box-shadow:
+0 20px 40px rgba(0,0,0,.45),
+0 0 30px rgba(201,168,76,.15);
+}
+
+/* POSISI */
+
+.orbit1{
+top:0;
+left:50%;
+
+transform:translateX(-50%);
+}
+
+.orbit2{
+right:0;
+top:50%;
+
+transform:translateY(-50%);
+}
+
+.orbit3{
+bottom:0;
+left:50%;
+
+transform:translateX(-50%);
+}
+
+.orbit4{
+left:0;
+top:50%;
+
+transform:translateY(-50%);
+}
+
+.orbit5{
+top:80px;
+left:80px;
+}
+
+/* ANIMASI */
+
+@keyframes coreFloat{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.hero-circle{
+width:100%;
+height:800px;
+}
+
+.profile-core{
+width:260px;
+height:260px;
+}
+
+.nav-orbit{
+width:90px;
+height:90px;
+}
+
+.nav-orbit span{
+font-size:12px;
+}
+
 }
 
 .hero h1 {
@@ -1183,6 +1385,256 @@ animation-delay:1.1s;
 .loader-text span:nth-child(12){
 animation-delay:1.2s;
 }
+
+/* HERO BARU */
+
+.hero-center{
+min-height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+position:relative;
+}
+
+.hero-circle{
+position:relative;
+
+width:650px;
+height:650px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.orbit-ring{
+position:absolute;
+
+width:520px;
+height:520px;
+
+border-radius:50%;
+
+border:
+1px solid rgba(201,168,76,.12);
+
+animation:
+spinRing 30s linear infinite;
+  
+z-index:1;
+}
+    
+/* FOTO TENGAH */
+
+.profile-core{
+width:320px;
+height:320px;
+
+border-radius:50%;
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+backdrop-filter:
+blur(20px);
+
+display:flex;
+flex-direction:column;
+
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+padding:30px;
+
+position:relative;
+
+z-index:5;
+
+box-shadow:
+0 0 50px rgba(201,168,76,.15);
+
+animation:
+coreFloat 5s ease-in-out infinite;
+}
+
+.profile-core img{
+width:140px;
+height:140px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+margin-bottom:20px;
+
+border:3px solid var(--gold);
+}
+
+.profile-core h1{
+font-family:var(--serif);
+
+font-size:42px;
+
+margin-bottom:10px;
+}
+
+.profile-core p{
+color:rgba(255,255,255,.6);
+}
+
+/* MENU ORBIT */
+
+.nav-orbit{
+position:absolute;
+
+width:120px;
+height:120px;
+
+border-radius:30px;
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+display:flex;
+flex-direction:column;
+
+justify-content:center;
+align-items:center;
+
+gap:10px;
+
+text-decoration:none;
+
+color:white;
+
+backdrop-filter:
+blur(12px);
+
+transition:.4s ease;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.25);
+}
+
+.nav-orbit i{
+font-size:28px;
+
+color:var(--gold);
+}
+
+.nav-orbit span{
+font-size:14px;
+}
+
+.nav-orbit:hover{
+
+transform:
+translateY(-10px)
+scale(1.05);
+
+border-color:
+rgba(201,168,76,.4);
+
+box-shadow:
+0 20px 40px rgba(0,0,0,.45),
+0 0 30px rgba(201,168,76,.15);
+}
+
+/* POSISI */
+
+.orbit1{
+top:0;
+left:50%;
+
+transform:translateX(-50%);
+}
+
+.orbit2{
+right:0;
+top:50%;
+
+transform:translateY(-50%);
+}
+
+.orbit3{
+bottom:0;
+left:50%;
+
+transform:translateX(-50%);
+}
+
+.orbit4{
+left:0;
+top:50%;
+
+transform:translateY(-50%);
+}
+
+.orbit5{
+top:80px;
+left:80px;
+}
+
+/* ANIMASI */
+
+@keyframes coreFloat{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+}
+@keyframes spinRing{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(360deg);
+}
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.hero-circle{
+width:100%;
+height:800px;
+}
+
+.profile-core{
+width:260px;
+height:260px;
+}
+
+.nav-orbit{
+width:90px;
+height:90px;
+}
+
+.nav-orbit span{
+font-size:12px;
+}
+
+}
+    
   </style>
 </head>
 <body>
@@ -1251,44 +1703,49 @@ animation-delay:1.2s;
 </div>
 </div>
 
-  <header class="navbar">
+<section class="hero-center">
 
-<div class="logo">
-<div class="marquee-track">
+<div class="hero-circle">
+<div class="orbit-ring"></div>
+<a href="#journey" class="nav-orbit orbit1">
+<i class="fa-solid fa-road"></i>
+<span>Journey</span>
+</a>
 
-<span>WILDAN SOLEH</span>
-<span>WILDAN SOLEH</span>
-<span>WILDAN SOLEH</span>
+<a href="#projects" class="nav-orbit orbit2">
+<i class="fa-solid fa-layer-group"></i>
+<span>Projects</span>
+</a>
+
+<a href="#contact" class="nav-orbit orbit3">
+<i class="fa-solid fa-envelope"></i>
+<span>Contact</span>
+</a>
+
+<a href="#hobbies" class="nav-orbit orbit4">
+<i class="fa-solid fa-music"></i>
+<span>Hobbies</span>
+</a>
+
+<a href="#about" class="nav-orbit orbit5">
+<i class="fa-solid fa-user"></i>
+<span>About</span>
+</a>
+
+<div class="profile-core">
+
+<img src="https://i.ibb.co.com/1JZyd3Bp/IMG-20260404-WA0022.jpg">
+
+<h1>Wildan Soleh</h1>
+
+<p>Information Systems Student</p>
 
 </div>
+
 </div>
 
-<nav>
-<a href="#about">About</a>
-<a href="#journey">Journey</a>
-<a href="#projects">Projects</a>
-<a href="#hobbies">Hobbies</a>
-<a href="#contact">Contact</a>
-</nav>
-
-</header>
-
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-text reveal">
-      <div class="hero-mini">Information Systems Student</div>
-      <h1>Wildan <span>Soleh</span></h1>
-      <p>Membangun pengalaman digital yang menggabungkan logika, estetika, dan sisi manusia melalui desain, teknologi, dan kreativitas.</p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary">Lihat Project</a>
-        <a href="#contact" class="btn btn-secondary">Hubungi Saya</a>
-      </div>
-    </div>
-    <div class="hero-image reveal">
-      <img src="https://i.ibb.co.com/1JZyd3Bp/IMG-20260404-WA0022.jpg" alt="Wildan Soleh">
-    </div>
-  </section>
-
+</section>
+  
   <!-- ABOUT SECTION -->
   <section id="about">
     <div class="reveal">
