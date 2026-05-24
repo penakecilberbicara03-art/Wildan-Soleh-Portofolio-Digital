@@ -534,6 +534,18 @@ transform:translateY(-12px);
 
 }
 
+@keyframes counterSpin{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(-360deg);
+}
+
+}
+
     @keyframes orbitSpin{
 
 from{
@@ -569,103 +581,6 @@ font-size:12px;
 }
 
 }
-
-.hero h1 {
-  font-family: var(--serif);
-  font-size: clamp(64px, 10vw, 120px);
-  line-height: 0.9;
-  margin: 20px 0;
-  /* Tambahan Animasi */
-  opacity: 0;
-  transform: translateY(30px);
-  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.4s;
-}
-
-.hero p {
-  max-width: 520px;
-  color: rgba(255,255,255,0.65);
-  line-height: 1.8;
-  font-size: 16px;
-  /* Tambahan Animasi */
-  opacity: 0;
-  transform: translateY(30px);
-  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.6s;
-}
-
-.hero-actions {
-  margin-top: 40px;
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-  /* Tambahan Animasi */
-  opacity: 0;
-  transform: translateY(20px);
-  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.8s;
-}
-
-/* ---- TAMBAHKAN KEYFRAMES BARU INI DI BAWAHNYA ---- */
-@keyframes heroFadeIn {
-  to { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
-}
-
-    .btn {
-      padding: 16px 28px;
-      border-radius: 18px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      color: black;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-4px);
-    }
-
-    .btn-secondary {
-      border: 1px solid var(--border);
-      color: var(--cream);
-      background: rgba(255,255,255,0.03);
-    }
-
-    .btn-secondary:hover {
-      border-color: rgba(201,168,76,0.4);
-    }
-
-    .hero-image {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      animation: floatHero 5s ease-in-out infinite;
-    }
-
-    .hero-image img {
-      width: 100%;
-      max-width: 420px;
-      border-radius: 32px;
-      object-fit: cover;
-      padding: 8px;
-      background: linear-gradient(135deg, rgba(201,168,76,0.9), rgba(255,255,255,0.12), rgba(201,168,76,0.5));
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.45), 0 0 30px rgba(201,168,76,0.12);
-      transition: transform .5s ease, box-shadow .5s ease;
-    }
-
-    .hero-image img:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 20px 70px rgba(0,0,0,0.6), 0 0 50px rgba(201,168,76,0.2);
-    }
 
     /* TITLE */
     .section-title {
@@ -1460,8 +1375,8 @@ z-index:1;
 /* FOTO TENGAH */
 
 .profile-core{
-width:320px;
-height:320px;
+width:300px;
+height:300px;
 
 border-radius:50%;
 
@@ -1496,8 +1411,8 @@ coreFloat 5s ease-in-out infinite;
 }
 
 .profile-core img{
-width:140px;
-height:140px;
+width:300px;
+height:300px;
 
 border-radius:50%;
 
@@ -1778,6 +1693,8 @@ font-size:12px;
 
 <div class="hero-circle">
 <div class="orbit-ring"></div>
+<div class="orbit-wrap"></div>
+
 <a href="#journey" class="nav-orbit orbit1">
 <i class="fa-solid fa-road"></i>
 <span>Journey</span>
