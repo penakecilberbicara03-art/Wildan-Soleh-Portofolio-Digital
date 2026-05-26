@@ -700,6 +700,12 @@ font-size:12px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
 
+    .project-card{
+display:block;
+text-decoration:none;
+color:inherit;
+cursor:pointer;
+}
     .project-card:hover {
       transform: translateY(-12px) scale(1.01);
       border-color: rgba(201,168,76,0.35);
@@ -1620,6 +1626,56 @@ font-size:12px;
 }
 
 }
+
+.hero-center{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:min(1200px,92%);
+  margin:auto;
+  min-height:100vh;
+}
+
+/* kiri teks */
+.hero-left{
+  flex:1;
+}
+
+.hero-left h1{
+  font-family:var(--serif);
+  font-size:72px;
+  color:var(--gold);
+  margin-bottom:10px;
+}
+
+.hero-left p{
+  color:rgba(255,255,255,.6);
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+/* kanan orbit */
+.hero-right{
+  flex:1;
+  display:flex;
+  justify-content:center;
+}
+
+/* kecilin dikit biar balance */
+.hero-circle{
+  width:520px;
+  height:520px;
+}
+
+/* kecilin orbit item */
+.nav-orbit{
+  width:100px;
+  height:100px;
+}
+
+.nav-orbit i{
+  font-size:22px;
+}
     
   </style>
 </head>
@@ -1691,47 +1747,50 @@ font-size:12px;
 
 <section class="hero-center">
 
-<div class="hero-circle">
-<div class="orbit-ring"></div>
-<div class="orbit-wrap"></div>
+  <!-- KIRI: TEKS -->
+  <div class="hero-left">
+    <h1>Wildan Soleh</h1>
+    <p>Information Systems Student</p>
+  </div>
 
-<a href="#journey" class="nav-orbit orbit1">
-<i class="fa-solid fa-road"></i>
-<span>Journey</span>
-</a>
+  <!-- KANAN: ORBIT + FOTO -->
+  <div class="hero-right">
+    <div class="hero-circle">
 
-<a href="#projects" class="nav-orbit orbit2">
-<i class="fa-solid fa-layer-group"></i>
-<span>Projects</span>
-</a>
+      <div class="orbit-ring"></div>
 
-<a href="#contact" class="nav-orbit orbit3">
-<i class="fa-solid fa-envelope"></i>
-<span>Contact</span>
-</a>
+      <a href="#journey" class="nav-orbit orbit1">
+        <i class="fa-solid fa-road"></i>
+        <span>Journey</span>
+      </a>
 
-<a href="#hobbies" class="nav-orbit orbit4">
-<i class="fa-solid fa-music"></i>
-<span>Hobbies</span>
-</a>
+      <a href="#projects" class="nav-orbit orbit2">
+        <i class="fa-solid fa-layer-group"></i>
+        <span>Projects</span>
+      </a>
 
-<a href="#about" class="nav-orbit orbit5">
-<i class="fa-solid fa-user"></i>
-<span>About</span>
-</a>
+      <a href="#contact" class="nav-orbit orbit3">
+        <i class="fa-solid fa-envelope"></i>
+        <span>Contact</span>
+      </a>
 
-<div class="profile-core">
+      <a href="#hobbies" class="nav-orbit orbit4">
+        <i class="fa-solid fa-music"></i>
+        <span>Hobbies</span>
+      </a>
 
-<img src="https://i.ibb.co.com/1JZyd3Bp/IMG-20260404-WA0022.jpg">
+      <a href="#about" class="nav-orbit orbit5">
+        <i class="fa-solid fa-user"></i>
+        <span>About</span>
+      </a>
 
-</div>
+      <div class="profile-core">
+        <img src="https://i.ibb.co.com/1JZyd3Bp/IMG-20260404-WA0022.jpg">
+      </div>
 
-</div>
+    </div>
+  </div>
 
-<div class="hero-name">
-<h1>Wildan Soleh</h1>
-<p>Information Systems Student</p>
-</div>
 </section>
   
   <!-- ABOUT SECTION -->
@@ -1815,23 +1874,29 @@ font-size:12px;
     </div>
     <div class="projects-grid">
 
-  <div class="project-card reveal">
-    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200" alt="Project 1">
+  <a href="https://penakecilberbicara03-art.github.io/TbaunganKU/"
+   target="_blank"
+   class="project-card reveal">
+
+    <img src="https://i.ibb.co.com/8L4MwCDb/Screenshot-2026-05-26-203221.png" alt="Project 1">
+
     <div class="project-content">
       <div class="project-year">2026</div>
-      <h3>MyBCA Redesign</h3>
-      <p>Analisis HCI dan redesign aplikasi mobile banking menggunakan pendekatan modern UI/UX.</p>
+
+      <h3>Aplikasi Tabungan</h3>
+
+      <p>
+      Aplikasi tabungan digital untuk mencatat, memantau, dan mengelola tujuan finansial secara lebih mudah dan terarah.
+      </p>
+
       <div class="tags">
         <div class="tag">Figma</div>
         <div class="tag">UI/UX</div>
         <div class="tag">Research</div>
       </div>
-      <div class="project-links">
-        <a href="#">Preview</a>
-        <a href="#">Github</a>
-      </div>
+
     </div>
-  </div>
+</a>
 
   <div class="project-card reveal">
     <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=1200" alt="Project 2">
@@ -1843,10 +1908,6 @@ font-size:12px;
         <div class="tag">Music</div>
         <div class="tag">Acoustic</div>
         <div class="tag">Lyrics</div>
-      </div>
-      <div class="project-links">
-        <a href="#">Preview</a>
-        <a href="#">Listen</a>
       </div>
     </div>
   </div>
@@ -1861,10 +1922,6 @@ font-size:12px;
         <div class="tag">Writing</div>
         <div class="tag">Reflection</div>
         <div class="tag">Journal</div>
-      </div>
-      <div class="project-links">
-        <a href="#">Preview</a>
-        <a href="#">Details</a>
       </div>
     </div>
   </div>
